@@ -46,3 +46,38 @@ def test_move_forward_from_00_east():
     rover.command('FORWARD')
     assert rover.direction == 'EAST'
     assert rover.coords == [1, 0]
+
+def test_move_backward_from_00_east():
+    rover = Rover.Rover(direction='EAST', coords=[0, 0])
+    rover.command('BACKWARD')
+    assert rover.direction == 'EAST'
+    assert rover.coords == [-1, 0]
+
+
+def test_move_backward_from_00_south():
+    rover = Rover.Rover(direction='SOUTH', coords=[0, 0])
+    rover.command('BACKWARD')
+    assert rover.direction == 'SOUTH'
+    assert rover.coords == [0, 1]
+
+
+def test_move_backward_from_02_south():
+    rover = Rover.Rover(direction='SOUTH', coords=[0, 2])
+    rover.command('BACKWARD')
+    assert rover.direction == 'SOUTH'
+    assert rover.coords == [0, 3]
+
+def test_final_exam():
+    rover = Rover.Rover(direction='EAST', coords=[0, 0])
+    rover.command('FORWARD')
+    rover.command('RIGHT')
+    rover.command('BACKWARD')
+    rover.command('LEFT')
+    rover.command('LEFT')
+    rover.command('LEFT')
+    rover.command('FORWARD')
+    rover.command('RIGHT')
+    assert rover.direction == 'NORTH'
+    assert rover.coords == [0, 1]
+
+
