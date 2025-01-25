@@ -15,7 +15,7 @@ class Rover:
         if coords:
             self.coords = coords
         else:
-            self.coords = [0, 0]
+            self.coords = [0, 0] # x, y
 
     def command(self, command):
         self.direction = self.rotations[(self.direction, command)]
